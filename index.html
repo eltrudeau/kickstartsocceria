@@ -1,1 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KickStartSoccerIA.com – Early Access</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+    }
 
+    .container {
+      background: white;
+      padding: 2rem;
+      max-width: 500px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #0d3b66;
+      margin-top: 0;
+    }
+
+    p {
+      color: #444;
+      font-size: 1rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 1rem;
+      background-color: #0d3b66;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 1.25rem;
+    }
+
+    button:hover {
+      background-color: #092c4c;
+    }
+
+    #status {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>KickStart Soccer IA</h1>
+    <p><strong>$139/month</strong> — taxes and fees included</p>
+    <p>Indoor soccer for kids ages 2–10. Small groups. Big confidence.</p>
+
+    <form name="submit-to-google-sheet">
+      <input type="text" name="name" placeholder="Parent's Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="text" name="zip" placeholder="ZIP Code" required />
+      <input type="text" name="child_age" placeholder="Child’s Age" required />
+      <button type="submit">Reserve Your Spot</button>
+    </form>
+
+    <p id="status"></p>
+  </div>
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyZerXD6A53LZ2rF7EKBmIOAoN5LIVsRX5knxKlFewDUTfvSpVvPgyWa5YKvhhbX7_m/exec';
+    const form = document.forms['submit-to-google-sheet'];
+    const status = document.getElementById('status');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+          status.innerHTML = "✅ Thanks! We’ll be in touch soon.";
+          form.reset();
+        })
+        .catch(error => {
+          status.innerHTML = "❌ Something went wrong. Please try again.";
+          console.error('Error!', error.message);
+        });
+    });
+  </script>
+</body>
+</html>
