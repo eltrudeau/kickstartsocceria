@@ -4,12 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>KickStartSoccerIA.com – Early Access</title>
+
+  <!-- ✅ Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod ?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID'); // ⬅️ Replace with your real Pixel ID
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+         src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/>
+  </noscript>
+
   <style>
     :root {
       --primary: #0d3b66;
       --accent: #00a896;
       --bg: #e6ecf0;
       --light: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
@@ -28,29 +51,29 @@
     }
 
     .header img {
-      height: 75px;
+      height: 100px;
       margin-right: 1rem;
     }
 
     .header h2 {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       color: var(--primary);
       margin: 0;
     }
 
     .main {
       display: flex;
-      flex-direction: row;
+      flex-wrap: wrap;
       justify-content: center;
       align-items: flex-start;
       padding: 2rem;
-      max-width: 1200px;
+      max-width: 1300px;
       margin: auto;
       gap: 2rem;
     }
 
     .content {
-      flex: 1;
+      flex: 1 1 600px;
       background: #fdfefe;
       padding: 2rem;
       border-radius: 12px;
@@ -59,7 +82,7 @@
     }
 
     .form-box {
-      flex: 0 0 400px;
+      flex: 0 1 400px;
       background: var(--light);
       padding: 2rem;
       border-radius: 12px;
@@ -95,7 +118,7 @@
     button {
       width: 100%;
       padding: 1rem;
-      background-color: var(--accent);
+      background-color: var(--primary);
       color: white;
       font-size: 1rem;
       font-weight: bold;
@@ -107,7 +130,7 @@
     }
 
     button:hover {
-      background-color: #028e7f;
+      background-color: #092c4c;
     }
 
     #status {
@@ -120,6 +143,31 @@
       margin-top: 2rem;
       width: 100%;
       border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .header img {
+        margin: 0 0 1rem 0;
+        height: 80px;
+      }
+
+      .header h2 {
+        font-size: 1.25rem;
+      }
+
+      .main {
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      .content, .form-box {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -171,7 +219,7 @@
         <input type="email" name="email" placeholder="Email Address" required />
         <input type="text" name="zip" placeholder="ZIP Code" required />
         <input type="text" name="child_age" placeholder="Child’s Age" required />
-        <button type="submit">Reserve Your Spot</button>
+        <button type="submit">I'm Interested</button>
         <p id="status"></p>
       </form>
 
