@@ -9,42 +9,70 @@
       font-family: Arial, sans-serif;
       background: #f3f3f3;
       margin: 0;
-      padding: 2rem;
-      display: flex;
-      justify-content: center;
+      padding: 0;
     }
 
-    .container {
+    .header {
+      display: flex;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .header img {
+      height: 50px;
+      margin-right: 1rem;
+    }
+
+    .header h2 {
+      font-size: 1.2rem;
+      color: #0d3b66;
+      margin: 0;
+    }
+
+    .main {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+      gap: 2rem;
+    }
+
+    .content {
+      flex: 1;
       background: white;
       padding: 2rem;
-      max-width: 600px;
-      width: 100%;
       border-radius: 12px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
 
-    .logo {
-      max-width: 180px;
-      display: block;
-      margin: 0 auto 1rem auto;
+    .form-box {
+      flex: 0 0 400px;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
 
-    .program-image {
-      width: 100%;
-      height: auto;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-    }
-
-    h1 {
+    h1, h2 {
       color: #0d3b66;
-      margin-top: 0;
-      text-align: center;
     }
 
     p {
       color: #444;
-      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    ul li {
+      margin-bottom: 0.5rem;
     }
 
     input {
@@ -78,56 +106,59 @@
       font-weight: bold;
       color: green;
     }
-
-    .program-details {
-      margin-top: 2rem;
-    }
-
-    .program-details h2 {
-      color: #0d3b66;
-    }
-
-    .program-details ul {
-      list-style-type: disc;
-      padding-left: 1.5rem;
-    }
-
-    .program-details ul li {
-      margin-bottom: 0.5rem;
-    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="logo.png" alt="KickStart Soccer Logo" class="logo" />
-    <h1>KickStart Soccer IA</h1>
-    <img src="image1.png" alt="KickStart Soccer" class="program-image" />
-    <p><strong>$139/month</strong> — taxes and fees included</p>
-    <p>Indoor soccer for kids ages 2–10. Small groups. Big confidence.</p>
 
-    <form name="submit-to-google-sheet">
-      <input type="text" name="name" placeholder="Parent's Name" required />
-      <input type="email" name="email" placeholder="Email Address" required />
-      <input type="text" name="zip" placeholder="ZIP Code" required />
-      <input type="text" name="child_age" placeholder="Child’s Age" required />
-      <button type="submit">Reserve Your Spot</button>
-    </form>
+  <div class="header">
+    <img src="logo.png" alt="KickStart Soccer Logo" />
+    <h2>Help Us Bring KickStart Soccer to Des Moines!</h2>
+  </div>
 
-    <p id="status"></p>
+  <div class="main">
+    <div class="content">
+      <h1>We’re exploring the launch of KickStart Soccer</h1>
+      <p>A new indoor soccer program for kids aged 2–10 that’s about way more than just kicking a ball.</p>
+      <p><strong>Our mission is simple:</strong> Build confident, active, and focused kids through soccer — indoors, year-round.</p>
 
-    <div class="program-details">
-      <h2>Why KickStart Soccer?</h2>
-      <p>KickStart Soccer is more than just a game. Designed by youth development professionals, our program helps kids ages 2–10 build confidence, character, and coordination — all in a fun, indoor environment with expert coaches and small class sizes.</p>
-
-      <h2>Program Highlights</h2>
+      <p><strong>We use soccer as a tool to develop:</strong></p>
       <ul>
-        <li><strong>Age Groups:</strong> 2–10 years old</li>
-        <li><strong>Class Size:</strong> Small groups for personalized attention</li>
-        <li><strong>Duration:</strong> 45–50 minutes per class</li>
-        <li><strong>Frequency:</strong> Once per week</li>
-        <li><strong>Curriculum:</strong> Focus on motor skills, teamwork, and fun</li>
-        <li><strong>Location:</strong> Indoor facilities in Des Moines, IA</li>
+        <li>✅ Motor skills & coordination</li>
+        <li>✅ Teamwork & social confidence</li>
+        <li>✅ Focus, discipline, and resilience</li>
+        <li>✅ A love of movement and play</li>
       </ul>
+
+      <h2>👶 Program Overview</h2>
+      <ul>
+        <li><strong>2–3:</strong> Movement, fun, bonding with parent</li>
+        <li><strong>3–5:</strong> Listening, balance, basic footwork</li>
+        <li><strong>6–10:</strong> Skill-building, teamwork, and confidence through gameplay</li>
+      </ul>
+      <p>And because it's indoor and year-round, you don’t have to worry about weather cancellations or missed weeks.</p>
+
+      <h2>💰 Pricing & Transparency</h2>
+      <p>We’re considering a price of $139/month — including taxes and fees. This would include:</p>
+      <ul>
+        <li>🏟 Indoor facility access</li>
+        <li>👟 Weekly classes with trained coaches</li>
+        <li>💬 Monthly progress updates</li>
+        <li>📅 Flexible scheduling and make-up options</li>
+      </ul>
+
+      <h2>🙋 Why We Need Your Input</h2>
+      <p>We’re not launched yet — we’re validating interest right now. If you’d be interested in a program like this, let us know. No commitment — just a quick form.</p>
+    </div>
+
+    <div class="form-box">
+      <form name="submit-to-google-sheet">
+        <input type="text" name="name" placeholder="Parent's Name" required />
+        <input type="email" name="email" placeholder="Email Address" required />
+        <input type="text" name="zip" placeholder="ZIP Code" required />
+        <input type="text" name="child_age" placeholder="Child’s Age" required />
+        <button type="submit">Reserve Your Spot</button>
+        <p id="status"></p>
+      </form>
     </div>
   </div>
 
