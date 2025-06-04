@@ -28,6 +28,7 @@
     :root {
       --primary: #0d3b66; /* Dark Blue */
       --accent: #00a896;  /* Teal */
+      /* The blue from your image1.jpg hero background is #0077C0, let's use that for consistency */
       --hero-bg-image-overlay-color: #0077C0; 
       --secondary: #f7b733; /* Energetic secondary accent - Bright Yellow/Orange */
       --bg: #f4f7f6; 
@@ -80,4 +81,371 @@
     }
 
     .site-header h2 {
-      font-
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin: 0;
+      text-align: right;
+    }
+
+    /* Hero Section */
+    .hero {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('image1.jpg');
+      background-size: cover;
+      background-position: center;
+      color: var(--light);
+      padding: 5rem 0; 
+      text-align: center;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem; 
+      margin-bottom: 1rem;
+      color: var(--light);
+      font-weight: 700;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5); 
+    }
+
+    .hero p.lead {
+      font-size: 1.3rem; 
+      margin-bottom: 2.5rem;
+      max-width: 750px;
+      margin-left: auto;
+      margin-right: auto;
+      color: rgba(255,255,255,0.95); 
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2rem; 
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .btn-accent {
+      background-color: var(--accent);
+      color: var(--light);
+      font-size: 1.15rem;
+    }
+    .btn-accent:hover {
+      background-color: #008775;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+    }
+
+    /* Main Content Area */
+    .main-content {
+      padding: 3rem 0;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr;
+      gap: 2.5rem;
+      align-items: flex-start;
+    }
+
+    .info-section {
+      background: var(--light);
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px var(--shadow-light);
+    }
+
+    .info-section h2, .info-section h3 {
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+    .info-section h2 { font-size: 1.8rem; margin-bottom: 1.5rem; }
+    .info-section h3 { font-size: 1.4rem; margin-top: 1.5rem; }
+
+
+    .info-section p, .info-section ul {
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    .info-section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .info-section ul li {
+      padding-left: 1.8rem;
+      position: relative;
+      margin-bottom: 0.6rem;
+    }
+
+    .info-section ul li::before {
+      content: '⚽';
+      position: absolute;
+      left: 0;
+      top: -2px; /* Adjust as needed for vertical alignment */
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+
+    /* Form Box */
+    .form-box {
+      background: var(--light);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 25px var(--shadow-medium);
+      position: sticky;
+      top: 100px; /* Adjust based on header height + desired gap */
+    }
+
+    .form-box h2 {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .form-box p.subheading {
+        font-size: 0.95rem;
+        color: var(--text-light);
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-box input[type="text"],
+    .form-box input[type="email"] {
+      width: 100%;
+      padding: 0.85rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    .form-box input:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 2px rgba(0,168,150,0.2);
+    }
+
+
+    .form-box button {
+      width: 100%;
+      padding: 1rem;
+      background-color: var(--secondary);
+      color: var(--primary);
+      font-size: 1.1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .form-box button:hover {
+      background-color: #eab125; /* Darken secondary on hover */
+      transform: translateY(-2px);
+    }
+
+    #status {
+      margin-top: 1rem;
+      font-weight: bold;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    #status.success { color: green; }
+    #status.error { color: red; }
+
+    /* Footer */
+    .site-footer {
+        text-align: center;
+        padding: 2rem 0;
+        background: var(--primary);
+        color: rgba(255,255,255,0.7);
+        margin-top: 3rem;
+        font-size: 0.9rem;
+    }
+    .site-footer a {
+        color: var(--accent);
+        text-decoration: none;
+    }
+    .site-footer a:hover {
+        text-decoration: underline;
+    }
+
+
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-box {
+        position: static; /* Form not sticky on mobile */
+        margin-top: 2rem;
+      }
+       .hero h1 { font-size: 2.2rem; } 
+       .hero p.lead { font-size: 1.15rem; }
+       .hero { padding: 4rem 0; }
+    }
+
+    @media (max-width: 768px) {
+      .site-header .container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .site-header img.logo {
+        margin-bottom: 0.5rem;
+        height: 50px;
+      }
+      .site-header h2 {
+        font-size: 1rem;
+        text-align: center;
+      }
+      .hero { padding: 3rem 1rem; } 
+      .hero h1 { font-size: 1.8rem; }
+      .hero p.lead { font-size: 1rem; }
+      .info-section, .form-box { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <img src="logo.jpg" alt="KickStart Soccer Logo" class="logo"/>
+      <h2>Help Bring KickStart Soccer to Des Moines!</h2>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Fun & Developmental Indoor Soccer is Coming to Des Moines!</h1>
+      <p class="lead">Be among the first to know about KickStart Soccer! We're exploring unique, year-round programs for kids ages 2-10, focused on skills, confidence, and a love for the game.</p>
+      <a href="#interest-form" class="btn btn-accent">Express Your Interest & Get Early Updates!</a>
+    </div>
+  </section>
+
+  <main class="main-content">
+    <div class="container">
+      <div class="content-grid">
+        <section class="info-section">
+          <h2>More Than Just Kicking a Ball: The KickStart Difference</h2>
+          <p>We believe soccer is a powerful tool for childhood development. Our age-specific curriculum is designed by experts to ensure your child isn't just learning soccer, but also growing valuable life skills.</p>
+
+          <h3>What We'll Help Your Child Develop:</h3>
+          <ul>
+            <li>Enhanced Motor Skills & Coordination</li>
+            <li>Teamwork, Communication & Social Confidence</li>
+            <li>Improved Focus, Discipline, and Resilience</li>
+            <li>A Lifelong Love of Movement and Active Play</li>
+            <li>Listening Skills and Following Directions</li>
+          </ul>
+
+          <h3>Proposed Program Overview:</h3>
+          <div class="program-details">
+            <ul>
+              <li><strong>Mini Kickers (Ages 2–3):</strong> Introduction to movement, fun games, and parent bonding.</li>
+              <li><strong>Little Strikers (Ages 3–5):</strong> Focus on listening, balance, basic ball control, and fun drills.</li>
+              <li><strong>Junior Academy (Ages 6–10):</strong> Skill-building, teamwork, understanding game basics, and boosting confidence through positive coaching.</li>
+            </ul>
+            </div>
+          <p><strong>Year-Round Play, Rain or Shine!</strong> Our programs are planned for an indoor facility, meaning no weather cancellations and consistent fun and learning.</p>
+
+          <h3>Transparent Early Bird Pricing We're Exploring:</h3>
+          <p>To make this a reality, we're considering a <strong>Founding Members' monthly rate of $139</strong> (all taxes and fees included). This would include:</p>
+          <ul>
+            <li>Access to our modern indoor facility</li>
+            <li>Weekly classes led by trained, enthusiastic coaches</li>
+            <li>A proven, age-appropriate curriculum</li>
+            <li>Monthly progress updates for parents</li>
+            <li>Flexible scheduling with make-up options (subject to availability)</li>
+          </ul>
+          <p><em>Your interest helps us finalize these plans!</em></p>
+        </section>
+
+        <aside class="form-box" id="interest-form">
+          <h2>Be a KickStart Pioneer!</h2>
+          <p class="subheading">Let us know you're interested! There's no commitment, but your input is invaluable as we explore bringing KickStart Soccer to Des Moines.</p>
+
+          <form name="submit-to-google-sheet">
+            <input type="text" name="name" placeholder="Parent's Full Name" required />
+            <input type="email" name="email" placeholder="Your Email Address" required />
+            <input type="text" name="zip" placeholder="Your ZIP Code (Des Moines Area)" required />
+            <input type="text" name="child_age" placeholder="Child’s Age (e.g., 3, 7)" required />
+            <button type="submit">Yes, Keep Me Updated!</button>
+            <p id="status"></p> </form>
+          </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="currentYear"></span> KickStart Soccer Des Moines (Market Exploration). All Rights Reserved.</p>
+      <p>Questions? Reach out at <a href="mailto:info@kickstartsocceria.com">info@kickstartsocceria.com</a> (Example email)</p>
+      </div>
+  </footer>
+
+  <script>
+    // Google Sheets Submission
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyZerXD6A53LZ2rF7EKBmIOAoN5LIVsRX5knxKlFewDUTfvSpVvPgyWa5YKvhhbX7_m/exec'; // Your existing script URL
+    const form = document.forms['submit-to-google-sheet'];
+    const statusEl = document.getElementById('status');
+
+    // Check if form and statusEl exist to prevent errors if HTML is incomplete
+    if (form && statusEl) {
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        statusEl.innerHTML = "Sending...";
+        statusEl.className = ''; 
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {
+            if (!response.ok) { // Check if response was successful
+              // Even if not strictly 'ok', we might still want to show a generic success for sheet submission
+              // unless specific error handling from sheet response is needed.
+              console.warn('Fetch response not OK:', response.status, response.statusText);
+            }
+            statusEl.innerHTML = "✅ Thanks! We’ve got your interest and will be in touch soon.";
+            statusEl.className = 'success';
+            form.reset();
+          })
+          .catch(error => {
+            statusEl.innerHTML = "❌ Oops! Something went wrong. Please try again.";
+            statusEl.className = 'error';
+            console.error('Error!', error.message);
+          });
+      });
+    } else {
+      console.error("Form or status element not found. Check HTML IDs and names.");
+    }
+
+    // Set current year in footer
+    const yearEl = document.getElementById('currentYear');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    } else {
+      console.error("Current year element not found.");
+    }
+
+    // Smooth scroll for hero button
+    try {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+              e.preventDefault();
+              const targetElement = document.querySelector(this.getAttribute('href'));
+              if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+              } else {
+                console.error("Smooth scroll target not found for href:", this.getAttribute('href'));
+              }
+          });
+      });
+    } catch (e) {
+      console.error("Error setting up smooth scroll:", e);
+    }
+  </script>
+</body>
+</html>
