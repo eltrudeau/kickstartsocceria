@@ -25,12 +25,11 @@
 
   <style>
     :root {
-      --primary: #0d3b66; /* Dark Blue */
-      --accent: #00a896;  /* Teal - kept for minor elements if needed */
-      /* MODIFIED: New CTA button color */
-      --cta-button-bg: #007bff; /* Vibrant Blue */
-      --cta-button-text: #ffffff; /* White text for new button */
-      --secondary-cta-bg: #6c757d; /* A secondary grey for other buttons */
+      --primary: #0d3b66; 
+      --accent: #00a896;  
+      --cta-button-bg: #007bff; 
+      --cta-button-text: #ffffff; 
+      --secondary-cta-bg: #6c757d; 
       --bg: #f4f7f6; 
       --light: #ffffff;
       --text-dark: #333333;
@@ -63,7 +62,6 @@
     /* Header */
     .site-header {
       background: var(--light);
-      /* MODIFIED: Adjusted padding for larger logo */
       padding: 0.5rem 0; 
       box-shadow: 0 2px 4px var(--shadow-light);
       position: sticky;
@@ -78,9 +76,7 @@
     }
 
     .site-header img.logo {
-      /* MODIFIED: Significantly increased logo height */
       height: 75px; 
-      /* If your header is fixed height, this might require adjusting header overall height */
     }
 
     .header-info {
@@ -90,9 +86,9 @@
     }
 
     .site-header h2 {
-      font-size: 1.1rem; /* MODIFIED: Slightly smaller to make space for CTA */
+      font-size: 1.1rem; 
       color: var(--primary);
-      margin: 0 0 0.25rem 0; /* Added small bottom margin */
+      margin: 0 0 0.25rem 0; 
       text-align: right;
     }
     .btn-header-cta {
@@ -106,15 +102,16 @@
         transition: background-color 0.3s ease;
     }
     .btn-header-cta:hover {
-        background-color: #0056b3; /* Darken CTA blue on hover */
+        background-color: #0056b3; 
     }
 
 
     /* Hero Section */
     .hero {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image1.jpg'); /* Slightly stronger gradient for text contrast */
+      /* MODIFIED: Changed to .png */
+      background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image1.png'); 
       background-size: cover;
-      background-position: center center; /* Default for desktop */
+      background-position: center center; 
       color: var(--light);
       padding: 3rem 0; 
       text-align: center;
@@ -126,7 +123,7 @@
       margin-bottom: 0.75rem; 
       color: var(--light);
       font-weight: 700;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.6); /* Stronger shadow */
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6); 
     }
 
     .hero p.lead {
@@ -141,23 +138,23 @@
 
     .btn {
       display: inline-block;
-      padding: 0.9rem 2rem; /* MODIFIED: Unified hero/form button padding */
+      padding: 0.9rem 2rem; 
       border-radius: 6px;
       text-decoration: none;
       font-weight: bold;
       transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.15); /* Enhanced shadow */
-      border: 1px solid transparent; /* For structure */
+      box-shadow: 0 3px 6px rgba(0,0,0,0.15); 
+      border: 1px solid transparent; 
     }
 
-    .btn-cta-primary { /* MODIFIED: Class for main CTAs */
+    .btn-cta-primary { 
       background-color: var(--cta-button-bg);
       color: var(--cta-button-text);
       font-size: 1.15rem;
-      border-color: #0069d9; /* Slightly darker border for definition */
+      border-color: #0069d9; 
     }
     .btn-cta-primary:hover {
-      background-color: #0056b3; /* Darken CTA blue on hover */
+      background-color: #0056b3; 
       border-color: #004085;
       transform: translateY(-2px);
       box-shadow: 0 5px 8px rgba(0,0,0,0.2);
@@ -170,12 +167,13 @@
 
     .content-grid {
       display: grid;
-      grid-template-columns: 1.8fr 1fr;
+      /* MODIFIED: Adjusted column proportions. Form (1st child) is narrower, Info (2nd child) is wider */
+      grid-template-columns: 1fr 1.8fr; 
       gap: 2.5rem;
       align-items: flex-start;
     }
 
-    .info-section {
+    .info-section { /* This is now the second child in the grid, taking 1.8fr */
       background: var(--light);
       padding: 2.5rem;
       border-radius: 12px;
@@ -212,12 +210,12 @@
       position: absolute;
       left: 0;
       top: -2px; 
-      color: var(--primary); /* MODIFIED: Changed bullet to primary blue */
+      color: var(--primary); 
       font-size: 1.1rem;
     }
 
     /* Form Box */
-    .form-box {
+    .form-box { /* This is now the first child in the grid, taking 1fr */
       background: var(--light);
       padding: 2rem;
       border-radius: 12px;
@@ -251,13 +249,12 @@
     .form-box input:focus {
         outline: none;
         border-color: var(--cta-button-bg); 
-        box-shadow: 0 0 0 3px rgba(0,123,255,0.25); /* Glow effect for new blue */
+        box-shadow: 0 0 0 3px rgba(0,123,255,0.25); 
     }
 
 
-    .form-box button { /* This is the "Yes, Keep Me Updated" button */
+    .form-box button { 
       width: 100%;
-      /* Using .btn and .btn-cta-primary for consistency now */
     }
 
 
@@ -289,52 +286,49 @@
 
 
     /* Responsive Adjustments */
-    @media (max-width: 992px) { /* Tablet and larger mobile */
+    @media (max-width: 992px) { 
       .content-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Single column for tablet/mobile */
       }
-      /* MODIFIED: Form order on mobile */
+      /* Form order on mobile: Form is first in HTML, so it will appear first */
       .form-box {
         position: static; 
-        margin-top: 0; /* Will be first */
-        grid-row: 1; /* Moves form to the top in the grid flow */
+        margin-top: 0; 
+        /* grid-row: 1; No longer needed as HTML order dictates this now if grid-template-columns is 1fr */
       }
       .info-section {
-          margin-top: 2rem; /* Add space if form is first */
-          grid-row: 2; /* Info section comes after */
+          margin-top: 2rem; 
+          /* grid-row: 2; No longer needed */
       }
 
        .hero h1 { font-size: 2rem; } 
        .hero p.lead { font-size: 1.1rem; }
-       /* MODIFIED: Reduced hero padding on tablet */
        .hero { 
            padding: 2rem 0; 
-           background-position: center 40%; /* Attempt to adjust image focus */
+           background-position: center 40%; 
         }
     }
 
-    @media (max-width: 768px) { /* Mobile */
+    @media (max-width: 768px) { 
       .site-header .container {
         flex-direction: column;
-        align-items: center; /* Center logo and info */
-        gap: 0.5rem; /* Space between logo and info */
+        align-items: center; 
+        gap: 0.5rem; 
       }
       .site-header img.logo {
-        /* height: 60px; MODIFIED: Larger logo, but slightly smaller on small mobile */
         height: 65px; 
       }
       .header-info {
-          align-items: center; /* Center header text and CTA on mobile */
+          align-items: center; 
       }
       .site-header h2 {
         font-size: 1rem;
         text-align: center;
         margin-bottom: 0.5rem;
       }
-      /* MODIFIED: Reduced hero padding further on mobile and adjust background */
       .hero { 
           padding: 1.5rem 1rem; 
-          background-position: center 30%; /* Try to shift image's own text banner up */
+          background-position: center 30%; 
         }
       .hero h1 { font-size: 1.8rem; }
       .hero p.lead { font-size: 1rem; line-height: 1.4; }
@@ -346,7 +340,7 @@
 
   <header class="site-header">
     <div class="container">
-      <img src="logo.jpg" alt="KickStart Soccer Logo" class="logo"/>
+      <img src="logo.png" alt="KickStart Soccer Logo" class="logo"/>
       <div class="header-info">
         <h2>Help Bring KickStart Soccer to Des Moines!</h2>
         <a href="#interest-form" class="btn-header-cta">Get Updates!</a>
