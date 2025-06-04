@@ -5,9 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>KickStartSoccerIA.com – Early Access</title>
   <style>
+    :root {
+      --primary: #0d3b66;
+      --accent: #00a896;
+      --bg: #e6ecf0;
+      --light: #ffffff;
+    }
+
     body {
       font-family: Arial, sans-serif;
-      background: #f3f3f3;
+      background: var(--bg);
       margin: 0;
       padding: 0;
     }
@@ -16,7 +23,7 @@
       display: flex;
       align-items: center;
       padding: 1.5rem 2rem;
-      background: white;
+      background: var(--light);
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
 
@@ -27,7 +34,7 @@
 
     .header h2 {
       font-size: 1.5rem;
-      color: #0d3b66;
+      color: var(--primary);
       margin: 0;
     }
 
@@ -44,26 +51,27 @@
 
     .content {
       flex: 1;
-      background: white;
+      background: #fdfefe;
       padding: 2rem;
       border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      border: 1px solid #d8dee5;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
     }
 
     .form-box {
       flex: 0 0 400px;
-      background: white;
+      background: var(--light);
       padding: 2rem;
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
 
     h1, h2 {
-      color: #0d3b66;
+      color: var(--primary);
     }
 
     p {
-      color: #444;
+      color: #333;
       line-height: 1.6;
     }
 
@@ -87,7 +95,7 @@
     button {
       width: 100%;
       padding: 1rem;
-      background-color: #0d3b66;
+      background-color: var(--accent);
       color: white;
       font-size: 1rem;
       font-weight: bold;
@@ -95,10 +103,11 @@
       border-radius: 6px;
       cursor: pointer;
       margin-top: 1.25rem;
+      transition: background-color 0.3s;
     }
 
     button:hover {
-      background-color: #092c4c;
+      background-color: #028e7f;
     }
 
     #status {
@@ -145,3 +154,47 @@
 
       <h2>💰 Pricing & Transparency</h2>
       <p>We’re considering a price of $139/month — including taxes and fees. This would include:</p>
+      <ul>
+        <li>🏟 Indoor facility access</li>
+        <li>👟 Weekly classes with trained coaches</li>
+        <li>💬 Monthly progress updates</li>
+        <li>📅 Flexible scheduling and make-up options</li>
+      </ul>
+
+      <h2>🙋 Why We Need Your Input</h2>
+      <p>We’re not launched yet — we’re validating interest right now. If you’d be interested in a program like this, let us know. No commitment — just a quick form.</p>
+    </div>
+
+    <div class="form-box">
+      <form name="submit-to-google-sheet">
+        <input type="text" name="name" placeholder="Parent's Name" required />
+        <input type="email" name="email" placeholder="Email Address" required />
+        <input type="text" name="zip" placeholder="ZIP Code" required />
+        <input type="text" name="child_age" placeholder="Child’s Age" required />
+        <button type="submit">Reserve Your Spot</button>
+        <p id="status"></p>
+      </form>
+      <img src="image1.png" alt="Kids playing soccer" class="signup-image" />
+    </div>
+  </div>
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyZerXD6A53LZ2rF7EKBmIOAoN5LIVsRX5knxKlFewDUTfvSpVvPgyWa5YKvhhbX7_m/exec';
+    const form = document.forms['submit-to-google-sheet'];
+    const status = document.getElementById('status');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+          status.innerHTML = "✅ Thanks! We’ll be in touch soon.";
+          form.reset();
+        })
+        .catch(error => {
+          status.innerHTML = "❌ Something went wrong. Please try again.";
+          console.error('Error!', error.message);
+        });
+    });
+  </script>
+</body>
+</html>
