@@ -1,3 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KickStartSoccerIA.com – Early Access</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      max-width: 600px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      max-width: 180px;
+      display: block;
+      margin: 0 auto 1rem auto;
+    }
+
+    .program-image {
+      width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+    }
+
+    h1 {
+      color: #0d3b66;
+      margin-top: 0;
+      text-align: center;
+    }
+
+    p {
+      color: #444;
+      font-size: 1rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 1rem;
+      background-color: #0d3b66;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 1.25rem;
+    }
+
+    button:hover {
+      background-color: #092c4c;
+    }
+
+    #status {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: green;
+    }
+
+    .program-details {
+      margin-top: 2rem;
+    }
+
+    .program-details h2 {
+      color: #0d3b66;
+    }
+
+    .program-details ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+    }
+
+    .program-details ul li {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
 <body>
   <div class="container">
     <img src="logo.png" alt="KickStart Soccer Logo" class="logo" />
@@ -5,3 +104,10 @@
     <img src="image1.png" alt="KickStart Soccer" class="program-image" />
     <p><strong>$139/month</strong> — taxes and fees included</p>
     <p>Indoor soccer for kids ages 2–10. Small groups. Big confidence.</p>
+
+    <form name="submit-to-google-sheet">
+      <input type="text" name="name" placeholder="Parent's Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="text" name="zip" placeholder="ZIP Code" required />
+      <
+
