@@ -61,7 +61,7 @@
     /* Header */
     .site-header {
       background: var(--light);
-      padding: 1rem 0; /* MODIFIED: Adjusted padding since logo is removed */
+      padding: 1rem 0; 
       box-shadow: 0 2px 4px var(--shadow-light);
       position: sticky;
       top: 0;
@@ -71,48 +71,43 @@
     .site-header .container {
       display: flex;
       align-items: center;
-      justify-content: space-between; /* This will push text left and button right */
+      justify-content: space-between; 
     }
-
-    /* Logo removed */
 
     .site-header h2 {
-      font-size: 1.2rem; /* MODIFIED: Slightly larger text */
+      font-size: 1.2rem; 
       color: var(--primary);
       margin: 0; 
-      /* Text will be left-aligned by default as a block element in flex */
     }
     .btn-header-cta {
-        padding: 0.5rem 1rem; /* MODIFIED: Slightly larger padding */
-        font-size: 0.9rem; /* MODIFIED: Slightly larger font */
+        padding: 0.5rem 1rem; 
+        font-size: 0.9rem; 
         background-color: var(--cta-button-bg);
         color: var(--cta-button-text);
         border-radius: 5px;
         text-decoration: none;
         font-weight: 600;
         transition: background-color 0.3s ease;
-        white-space: nowrap; /* Prevents button text from wrapping */
+        white-space: nowrap; 
     }
     .btn-header-cta:hover {
         background-color: #0056b3; 
     }
 
-
     /* Hero Section */
     .hero {
-      /* MODIFIED: Using image1.jpg, increased padding for height */
-      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('image1.jpg'); 
+      /* MODIFIED: Changed back to image1.png */
+      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('image1.png'); 
       background-size: cover;
-      background-position: center center; /* Ensures the center of the image is shown */
+      background-position: center center; 
       color: var(--light);
-      /* MODIFIED: Increased padding to make hero taller, allowing more image visibility */
       padding: 5rem 0; 
       text-align: center;
       position: relative;
     }
 
     .hero h1 {
-      font-size: 2.7rem; /* MODIFIED: Slightly adjusted for new hero height */
+      font-size: 2.7rem; 
       margin-bottom: 1rem; 
       color: var(--light);
       font-weight: 700;
@@ -120,7 +115,7 @@
     }
 
     .hero p.lead {
-      font-size: 1.2rem; /* MODIFIED: Slightly adjusted */
+      font-size: 1.2rem; 
       margin-bottom: 1.75rem; 
       max-width: 720px; 
       margin-left: auto;
@@ -160,13 +155,12 @@
 
     .content-grid {
       display: grid;
-      /* MODIFIED: Adjusted column proportions. Form (1st child) is narrower, Info (2nd child) is wider */
-      grid-template-columns: 1fr 2fr; /* Example: Form 1 part, Info 2 parts */
+      grid-template-columns: 1fr 2fr; 
       gap: 2.5rem;
       align-items: flex-start;
     }
 
-    .info-section { /* This is the second child, gets 2fr */
+    .info-section { 
       background: var(--light);
       padding: 2.5rem;
       border-radius: 12px;
@@ -180,7 +174,6 @@
     }
     .info-section h2 { font-size: 1.8rem; margin-bottom: 1.5rem; }
     .info-section h3 { font-size: 1.4rem; margin-top: 1.5rem; }
-
 
     .info-section p, .info-section ul {
       color: var(--text-light);
@@ -208,7 +201,7 @@
     }
 
     /* Form Box */
-    .form-box { /* This is the first child, gets 1fr */
+    .form-box { 
       background: var(--light);
       padding: 2rem;
       border-radius: 12px;
@@ -290,33 +283,26 @@
        .hero h1 { font-size: 2.2rem; } 
        .hero p.lead { font-size: 1.15rem; }
        .hero { 
-           padding: 3rem 0; /* MODIFIED: Adjusted tablet hero padding */
-           background-position: center center; /* Ensure consistent centering */
+           padding: 3rem 0; 
+           background-position: center center; 
         }
     }
 
     @media (max-width: 768px) { 
-      .site-header .container {
-        /* MODIFIED: Simpler flex for mobile header */
-        /* flex-direction: column; remove if h2 and button are direct children */
-        /* align-items: center; */
-        /* gap: 0.5rem; */
-      }
       .site-header h2 {
-        font-size: 1rem; /* MODIFIED: Adjusted mobile header text size */
-        margin-right: 1rem; /* Add some space between text and button */
+        font-size: 1rem; 
+        margin-right: 1rem; 
       }
       .btn-header-cta {
-          padding: 0.4rem 0.6rem; /* Slightly smaller padding for mobile */
+          padding: 0.4rem 0.6rem; 
           font-size: 0.8rem;
       }
       .hero { 
-          /* MODIFIED: Reduced padding for mobile hero, adjust background-position if needed */
           padding: 2.5rem 1rem; 
-          background-position: center 30%; /* Attempt to keep subject in view */
+          background-position: center 30%; 
         }
-      .hero h1 { font-size: 1.9rem; } /* MODIFIED */
-      .hero p.lead { font-size: 1.05rem; line-height: 1.45; } /* MODIFIED */
+      .hero h1 { font-size: 1.9rem; } 
+      .hero p.lead { font-size: 1.05rem; line-height: 1.45; } 
       .info-section, .form-box { padding: 1.5rem; }
     }
   </style>
