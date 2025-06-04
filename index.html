@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>KickStartSoccerIA.com – Early Access</title>
+  <title>KickStart Soccer Des Moines | Fun Indoor Soccer for Kids (2-10) - Express Interest!</title>
+  <meta name="description" content="Exploring a new, year-round indoor soccer program in Des Moines for kids ages 2-10! Help KickStart Soccer build confident, active kids. Express your interest today!">
 
-  <!-- ✅ Meta Pixel Code -->
   <script>
     !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod ?
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
     if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
     n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'YOUR_PIXEL_ID'); // ⬅️ Replace with your real Pixel ID
+    // ⬇️ !!! REPLACE YOUR_PIXEL_ID WITH YOUR ACTUAL PIXEL ID !!! ⬇️
+    fbq('init', 'YOUR_PIXEL_ID');
     fbq('track', 'PageView');
   </script>
   <noscript>
@@ -25,226 +26,58 @@
 
   <style>
     :root {
-      --primary: #0d3b66;
-      --accent: #00a896;
-      --bg: #e6ecf0;
+      --primary: #0d3b66; /* Dark Blue */
+      --accent: #00a896;  /* Teal */
+      --hero-bg-image-overlay-color: #0077C0; 
+      --secondary: #f7b733; /* Energetic secondary accent - Bright Yellow/Orange */
+      --bg: #f4f7f6; 
       --light: #ffffff;
+      --text-dark: #333333;
+      --text-light: #555555;
+      --border-color: #d8dee5;
+      --shadow-light: rgba(0,0,0,0.05);
+      --shadow-medium: rgba(0,0,0,0.1);
     }
 
     * {
       box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: var(--bg);
       margin: 0;
       padding: 0;
     }
 
-    .header {
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Header */
+    .site-header {
+      background: var(--light);
+      padding: 1rem 0;
+      box-shadow: 0 2px 4px var(--shadow-light);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .site-header .container {
       display: flex;
       align-items: center;
-      padding: 1.5rem 2rem;
-      background: var(--light);
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
-
-    .header img {
-      height: 100px;
-      margin-right: 1rem;
-    }
-
-    .header h2 {
-      font-size: 1.75rem;
-      color: var(--primary);
-      margin: 0;
-    }
-
-    .main {
-      display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
-      align-items: flex-start;
-      padding: 2rem;
-      max-width: 98%;
-      margin: auto;
-      gap: 2rem;
     }
 
-    .content {
-      flex: 1.5;
-      background: #fdfefe;
-      padding: 2rem;
-      border-radius: 12px;
-      border: 1px solid #d8dee5;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    .site-header img.logo {
+      height: 60px;
     }
 
-    .form-box {
-      flex: 0 0 400px;
-      background: var(--light);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
-
-    h1, h2 {
-      color: var(--primary);
-    }
-
-    p {
-      color: #333;
-      line-height: 1.6;
-    }
-
-    ul {
-      padding-left: 1.2rem;
-    }
-
-    ul li {
-      margin-bottom: 0.5rem;
-    }
-
-    input {
-      width: 100%;
-      padding: 0.75rem;
-      margin-top: 0.75rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-
-    button {
-      width: 100%;
-      padding: 1rem;
-      background-color: var(--primary);
-      color: white;
-      font-size: 1rem;
-      font-weight: bold;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      margin-top: 1.25rem;
-      transition: background-color 0.3s;
-    }
-
-    button:hover {
-      background-color: #092c4c;
-    }
-
-    #status {
-      margin-top: 1rem;
-      font-weight: bold;
-      color: green;
-    }
-
-    .signup-image {
-      margin-top: 2rem;
-      width: 100%;
-      border-radius: 10px;
-      display: block;
-    }
-
-    @media (max-width: 768px) {
-      .header {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .header img {
-        margin: 0 0 1rem 0;
-        height: 80px;
-      }
-
-      .header h2 {
-        font-size: 1.25rem;
-      }
-
-      .main {
-        flex-direction: column;
-        padding: 1rem;
-      }
-
-      .content, .form-box {
-        width: 100%;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <div class="header">
-    <img src="logo.png" alt="KickStart Soccer Logo" />
-    <h2>Help Us Bring KickStart Soccer to Des Moines!</h2>
-  </div>
-
-  <div class="main">
-    <div class="content">
-      <h1>We’re exploring the launch of KickStart Soccer</h1>
-      <p>A new indoor soccer program for kids aged 2–10 that’s about way more than just kicking a ball.</p>
-      <p><strong>Our mission is simple:</strong> Build confident, active, and focused kids through soccer — indoors, year-round.</p>
-
-      <p><strong>We use soccer as a tool to develop:</strong></p>
-      <ul>
-        <li>✅ Motor skills & coordination</li>
-        <li>✅ Teamwork & social confidence</li>
-        <li>✅ Focus, discipline, and resilience</li>
-        <li>✅ A love of movement and play</li>
-      </ul>
-
-      <h2>👶 Program Overview</h2>
-      <ul>
-        <li><strong>2–3:</strong> Movement, fun, bonding with parent</li>
-        <li><strong>3–5:</strong> Listening, balance, basic footwork</li>
-        <li><strong>6–10:</strong> Skill-building, teamwork, and confidence through gameplay</li>
-      </ul>
-      <p>And because it's indoor and year-round, you don’t have to worry about weather cancellations or missed weeks.</p>
-
-      <h2>💰 Pricing & Transparency</h2>
-      <p>We’re considering a price of $139/month — including taxes and fees. This would include:</p>
-      <ul>
-        <li>🏟 Indoor facility access</li>
-        <li>👟 Weekly classes with trained coaches</li>
-        <li>💬 Monthly progress updates</li>
-        <li>📅 Flexible scheduling and make-up options</li>
-      </ul>
-    </div>
-
-    <div class="form-box">
-      <h2>🙋 Why We Need Your Input</h2>
-      <p>We’re not launched yet — we’re validating interest right now. If you’d be interested in a program like this, let us know. No commitment — just a quick form.</p>
-
-      <form name="submit-to-google-sheet">
-        <input type="text" name="name" placeholder="Parent's Name" required />
-        <input type="email" name="email" placeholder="Email Address" required />
-        <input type="text" name="zip" placeholder="ZIP Code" required />
-        <input type="text" name="child_age" placeholder="Child’s Age" required />
-        <button type="submit">I'm Interested</button>
-        <p id="status"></p>
-      </form>
-
-      <img src="image1.png" alt="Kids playing soccer" class="signup-image" />
-    </div>
-  </div>
-
-  <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyZerXD6A53LZ2rF7EKBmIOAoN5LIVsRX5knxKlFewDUTfvSpVvPgyWa5YKvhhbX7_m/exec';
-    const form = document.forms['submit-to-google-sheet'];
-    const status = document.getElementById('status');
-
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => {
-          status.innerHTML = "✅ Thanks! We’ll be in touch soon.";
-          form.reset();
-        })
-        .catch(error => {
-          status.innerHTML = "❌ Something went wrong. Please try again.";
-          console.error('Error!', error.message);
-        });
-    });
-  </script>
-</body>
-</html>
+    .site-header h2 {
+      font-
