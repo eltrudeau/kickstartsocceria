@@ -15,18 +15,18 @@
     .header {
       display: flex;
       align-items: center;
-      padding: 1rem 2rem;
+      padding: 1.5rem 2rem;
       background: white;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
 
     .header img {
-      height: 50px;
+      height: 75px;
       margin-right: 1rem;
     }
 
     .header h2 {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       color: #0d3b66;
       margin: 0;
     }
@@ -106,6 +106,12 @@
       font-weight: bold;
       color: green;
     }
+
+    .signup-image {
+      margin-top: 2rem;
+      width: 100%;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
@@ -139,46 +145,3 @@
 
       <h2>💰 Pricing & Transparency</h2>
       <p>We’re considering a price of $139/month — including taxes and fees. This would include:</p>
-      <ul>
-        <li>🏟 Indoor facility access</li>
-        <li>👟 Weekly classes with trained coaches</li>
-        <li>💬 Monthly progress updates</li>
-        <li>📅 Flexible scheduling and make-up options</li>
-      </ul>
-
-      <h2>🙋 Why We Need Your Input</h2>
-      <p>We’re not launched yet — we’re validating interest right now. If you’d be interested in a program like this, let us know. No commitment — just a quick form.</p>
-    </div>
-
-    <div class="form-box">
-      <form name="submit-to-google-sheet">
-        <input type="text" name="name" placeholder="Parent's Name" required />
-        <input type="email" name="email" placeholder="Email Address" required />
-        <input type="text" name="zip" placeholder="ZIP Code" required />
-        <input type="text" name="child_age" placeholder="Child’s Age" required />
-        <button type="submit">Reserve Your Spot</button>
-        <p id="status"></p>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyZerXD6A53LZ2rF7EKBmIOAoN5LIVsRX5knxKlFewDUTfvSpVvPgyWa5YKvhhbX7_m/exec';
-    const form = document.forms['submit-to-google-sheet'];
-    const status = document.getElementById('status');
-
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => {
-          status.innerHTML = "✅ Thanks! We’ll be in touch soon.";
-          form.reset();
-        })
-        .catch(error => {
-          status.innerHTML = "❌ Something went wrong. Please try again.";
-          console.error('Error!', error.message);
-        });
-    });
-  </script>
-</body>
-</html>
