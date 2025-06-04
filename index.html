@@ -15,8 +15,7 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    // ⬇️ !!! REPLACE YOUR_PIXEL_ID WITH YOUR ACTUAL PIXEL ID !!! ⬇️
-    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('init', 'YOUR_PIXEL_ID'); // REPLACE WITH YOUR PIXEL ID
     fbq('track', 'PageView');
   </script>
   <noscript>
@@ -27,8 +26,11 @@
   <style>
     :root {
       --primary: #0d3b66; /* Dark Blue */
-      --accent: #00a896;  /* Teal - Retaining for potential other uses, but hero button will change */
-      --secondary: #f7b733; /* Energetic secondary accent - Bright Yellow/Orange */
+      --accent: #00a896;  /* Teal - kept for minor elements if needed */
+      /* MODIFIED: New CTA button color */
+      --cta-button-bg: #007bff; /* Vibrant Blue */
+      --cta-button-text: #ffffff; /* White text for new button */
+      --secondary-cta-bg: #6c757d; /* A secondary grey for other buttons */
       --bg: #f4f7f6; 
       --light: #ffffff;
       --text-dark: #333333;
@@ -61,7 +63,8 @@
     /* Header */
     .site-header {
       background: var(--light);
-      padding: 1rem 0;
+      /* MODIFIED: Adjusted padding for larger logo */
+      padding: 0.5rem 0; 
       box-shadow: 0 2px 4px var(--shadow-light);
       position: sticky;
       top: 0;
@@ -75,68 +78,89 @@
     }
 
     .site-header img.logo {
-      height: 60px;
+      /* MODIFIED: Significantly increased logo height */
+      height: 75px; 
+      /* If your header is fixed height, this might require adjusting header overall height */
+    }
+
+    .header-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
     }
 
     .site-header h2 {
-      font-size: 1.25rem;
+      font-size: 1.1rem; /* MODIFIED: Slightly smaller to make space for CTA */
       color: var(--primary);
-      margin: 0;
+      margin: 0 0 0.25rem 0; /* Added small bottom margin */
       text-align: right;
     }
+    .btn-header-cta {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+        background-color: var(--cta-button-bg);
+        color: var(--cta-button-text);
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+    }
+    .btn-header-cta:hover {
+        background-color: #0056b3; /* Darken CTA blue on hover */
+    }
+
 
     /* Hero Section */
     .hero {
-      /* Ensure 'image1.jpg' is in the same folder as your HTML file on the server, OR update this path */
-      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('image1.png');
+      background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image1.jpg'); /* Slightly stronger gradient for text contrast */
       background-size: cover;
-      background-position: center;
+      background-position: center center; /* Default for desktop */
       color: var(--light);
-      /* MODIFIED: Reduced padding */
       padding: 3rem 0; 
       text-align: center;
       position: relative;
     }
 
     .hero h1 {
-      /* MODIFIED: Slightly reduced font size */
       font-size: 2.5rem; 
-      margin-bottom: 0.75rem; /* MODIFIED: Reduced margin */
+      margin-bottom: 0.75rem; 
       color: var(--light);
       font-weight: 700;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.5); 
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6); /* Stronger shadow */
     }
 
     .hero p.lead {
-      /* MODIFIED: Slightly reduced font size */
       font-size: 1.15rem; 
-      margin-bottom: 1.5rem; /* MODIFIED: Reduced margin */
-      max-width: 700px; /* MODIFIED: Slightly reduced max-width */
+      margin-bottom: 1.5rem; 
+      max-width: 700px; 
       margin-left: auto;
       margin-right: auto;
       color: rgba(255,255,255,0.95); 
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5); 
     }
 
     .btn {
       display: inline-block;
-      padding: 0.8rem 1.8rem; /* MODIFIED: Adjusted padding slightly */
+      padding: 0.9rem 2rem; /* MODIFIED: Unified hero/form button padding */
       border-radius: 6px;
       text-decoration: none;
       font-weight: bold;
       transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.15); /* Enhanced shadow */
+      border: 1px solid transparent; /* For structure */
     }
 
-    .btn-hero-action { /* MODIFIED: Renamed class for clarity, changed color */
-      background-color: var(--secondary); /* Using yellow/orange */
-      color: var(--primary); /* Dark text on yellow for better contrast */
-      font-size: 1.1rem; /* MODIFIED: Adjusted font size */
+    .btn-cta-primary { /* MODIFIED: Class for main CTAs */
+      background-color: var(--cta-button-bg);
+      color: var(--cta-button-text);
+      font-size: 1.15rem;
+      border-color: #0069d9; /* Slightly darker border for definition */
     }
-    .btn-hero-action:hover {
-      background-color: #eab125; /* Darken secondary on hover */
+    .btn-cta-primary:hover {
+      background-color: #0056b3; /* Darken CTA blue on hover */
+      border-color: #004085;
       transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+      box-shadow: 0 5px 8px rgba(0,0,0,0.2);
     }
 
     /* Main Content Area */
@@ -188,7 +212,7 @@
       position: absolute;
       left: 0;
       top: -2px; 
-      color: var(--accent); /* This is still teal, you might want to change if disliked everywhere */
+      color: var(--primary); /* MODIFIED: Changed bullet to primary blue */
       font-size: 1.1rem;
     }
 
@@ -226,29 +250,16 @@
     }
     .form-box input:focus {
         outline: none;
-        border-color: var(--secondary); /* MODIFIED: Using secondary for focus consistency */
-        box-shadow: 0 0 0 2px rgba(247,183,51,0.2); /* MODIFIED: Using secondary for focus consistency */
+        border-color: var(--cta-button-bg); 
+        box-shadow: 0 0 0 3px rgba(0,123,255,0.25); /* Glow effect for new blue */
     }
 
 
     .form-box button { /* This is the "Yes, Keep Me Updated" button */
       width: 100%;
-      padding: 1rem;
-      background-color: var(--secondary); /* Already using yellow/orange */
-      color: var(--primary);
-      font-size: 1.1rem;
-      font-weight: bold;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      margin-top: 0.5rem;
-      transition: background-color 0.3s, transform 0.2s;
+      /* Using .btn and .btn-cta-primary for consistency now */
     }
 
-    .form-box button:hover {
-      background-color: #eab125; 
-      transform: translateY(-2px);
-    }
 
     #status {
       margin-top: 1rem;
@@ -269,7 +280,7 @@
         font-size: 0.9rem;
     }
     .site-footer a {
-        color: var(--accent); /* Teal link in footer */
+        color: var(--accent); 
         text-decoration: none;
     }
     .site-footer a:hover {
@@ -278,35 +289,55 @@
 
 
     /* Responsive Adjustments */
-    @media (max-width: 992px) {
+    @media (max-width: 992px) { /* Tablet and larger mobile */
       .content-grid {
         grid-template-columns: 1fr;
       }
+      /* MODIFIED: Form order on mobile */
       .form-box {
         position: static; 
-        margin-top: 2rem;
+        margin-top: 0; /* Will be first */
+        grid-row: 1; /* Moves form to the top in the grid flow */
       }
-       .hero h1 { font-size: 2rem; } /* MODIFIED: Responsive hero H1 */
-       .hero p.lead { font-size: 1.1rem; } /* MODIFIED: Responsive hero P */
-       .hero { padding: 2.5rem 0; } /* MODIFIED: Responsive hero padding */
+      .info-section {
+          margin-top: 2rem; /* Add space if form is first */
+          grid-row: 2; /* Info section comes after */
+      }
+
+       .hero h1 { font-size: 2rem; } 
+       .hero p.lead { font-size: 1.1rem; }
+       /* MODIFIED: Reduced hero padding on tablet */
+       .hero { 
+           padding: 2rem 0; 
+           background-position: center 40%; /* Attempt to adjust image focus */
+        }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 768px) { /* Mobile */
       .site-header .container {
         flex-direction: column;
-        text-align: center;
+        align-items: center; /* Center logo and info */
+        gap: 0.5rem; /* Space between logo and info */
       }
       .site-header img.logo {
-        margin-bottom: 0.5rem;
-        height: 50px;
+        /* height: 60px; MODIFIED: Larger logo, but slightly smaller on small mobile */
+        height: 65px; 
+      }
+      .header-info {
+          align-items: center; /* Center header text and CTA on mobile */
       }
       .site-header h2 {
         font-size: 1rem;
         text-align: center;
+        margin-bottom: 0.5rem;
       }
-      .hero { padding: 2rem 1rem; } 
+      /* MODIFIED: Reduced hero padding further on mobile and adjust background */
+      .hero { 
+          padding: 1.5rem 1rem; 
+          background-position: center 30%; /* Try to shift image's own text banner up */
+        }
       .hero h1 { font-size: 1.8rem; }
-      .hero p.lead { font-size: 1rem; }
+      .hero p.lead { font-size: 1rem; line-height: 1.4; }
       .info-section, .form-box { padding: 1.5rem; }
     }
   </style>
@@ -315,8 +346,11 @@
 
   <header class="site-header">
     <div class="container">
-      <img src="logo.png" alt="KickStart Soccer Logo" class="logo"/>
-      <h2>Help Bring KickStart Soccer to Des Moines!</h2>
+      <img src="logo.jpg" alt="KickStart Soccer Logo" class="logo"/>
+      <div class="header-info">
+        <h2>Help Bring KickStart Soccer to Des Moines!</h2>
+        <a href="#interest-form" class="btn-header-cta">Get Updates!</a>
+      </div>
     </div>
   </header>
 
@@ -324,13 +358,27 @@
     <div class="container">
       <h1>Fun & Developmental Indoor Soccer is Coming to Des Moines!</h1>
       <p class="lead">Be among the first to know about KickStart Soccer! We're exploring unique, year-round programs for kids ages 2-10, focused on skills, confidence, and a love for the game.</p>
-      <a href="#interest-form" class="btn btn-hero-action">Express Your Interest & Get Early Updates!</a>
+      <a href="#interest-form" class="btn btn-cta-primary">Express Your Interest & Get Early Updates!</a>
     </div>
   </section>
 
   <main class="main-content">
     <div class="container">
       <div class="content-grid">
+        <aside class="form-box" id="interest-form">
+          <h2>Be a KickStart Pioneer!</h2>
+          <p class="subheading">Let us know you're interested! There's no commitment, but your input is invaluable as we explore bringing KickStart Soccer to Des Moines.</p>
+
+          <form name="submit-to-google-sheet">
+            <input type="text" name="name" placeholder="Parent's Full Name" required />
+            <input type="email" name="email" placeholder="Your Email Address" required />
+            <input type="text" name="zip" placeholder="Your ZIP Code (Des Moines Area)" required />
+            <input type="text" name="child_age" placeholder="Child’s Age (e.g., 3, 7)" required />
+            <button type="submit" class="btn btn-cta-primary">Yes, Keep Me Updated!</button>
+            <p id="status"></p>
+          </form>
+        </aside>
+
         <section class="info-section">
           <h2>More Than Just Kicking a Ball: The KickStart Difference</h2>
           <p>We believe soccer is a powerful tool for childhood development. Our age-specific curriculum is designed by experts to ensure your child isn't just learning soccer, but also growing valuable life skills.</p>
@@ -365,20 +413,6 @@
           </ul>
           <p><em>Your interest helps us finalize these plans!</em></p>
         </section>
-
-        <aside class="form-box" id="interest-form">
-          <h2>Be a KickStart Pioneer!</h2>
-          <p class="subheading">Let us know you're interested! There's no commitment, but your input is invaluable as we explore bringing KickStart Soccer to Des Moines.</p>
-
-          <form name="submit-to-google-sheet">
-            <input type="text" name="name" placeholder="Parent's Full Name" required />
-            <input type="email" name="email" placeholder="Your Email Address" required />
-            <input type="text" name="zip" placeholder="Your ZIP Code (Des Moines Area)" required />
-            <input type="text" name="child_age" placeholder="Child’s Age (e.g., 3, 7)" required />
-            <button type="submit">Yes, Keep Me Updated!</button>
-            <p id="status"></p>
-          </form>
-        </aside>
       </div>
     </div>
   </main>
