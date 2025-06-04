@@ -64,16 +64,16 @@
     .main {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: space-between;
       align-items: flex-start;
       padding: 2rem;
-      max-width: 1300px;
+      max-width: 90%;
       margin: auto;
       gap: 2rem;
     }
 
     .content {
-      flex: 1 1 600px;
+      flex: 1.5;
       background: #fdfefe;
       padding: 2rem;
       border-radius: 12px;
@@ -82,7 +82,7 @@
     }
 
     .form-box {
-      flex: 0 1 400px;
+      flex: 0 0 400px;
       background: var(--light);
       padding: 2rem;
       border-radius: 12px;
@@ -143,6 +143,7 @@
       margin-top: 2rem;
       width: 100%;
       border-radius: 10px;
+      display: block;
     }
 
     @media (max-width: 768px) {
