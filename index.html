@@ -29,7 +29,6 @@
       --accent: #00a896;  
       --cta-button-bg: #007bff; 
       --cta-button-text: #ffffff; 
-      --secondary-cta-bg: #6c757d; 
       --bg: #f4f7f6; 
       --light: #ffffff;
       --text-dark: #333333;
@@ -62,7 +61,7 @@
     /* Header */
     .site-header {
       background: var(--light);
-      padding: 0.5rem 0; 
+      padding: 1rem 0; /* MODIFIED: Adjusted padding since logo is removed */
       box-shadow: 0 2px 4px var(--shadow-light);
       position: sticky;
       top: 0;
@@ -72,34 +71,27 @@
     .site-header .container {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: space-between; /* This will push text left and button right */
     }
 
-    .site-header img.logo {
-      height: 75px; 
-    }
-
-    .header-info {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-    }
+    /* Logo removed */
 
     .site-header h2 {
-      font-size: 1.1rem; 
+      font-size: 1.2rem; /* MODIFIED: Slightly larger text */
       color: var(--primary);
-      margin: 0 0 0.25rem 0; 
-      text-align: right;
+      margin: 0; 
+      /* Text will be left-aligned by default as a block element in flex */
     }
     .btn-header-cta {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.85rem;
+        padding: 0.5rem 1rem; /* MODIFIED: Slightly larger padding */
+        font-size: 0.9rem; /* MODIFIED: Slightly larger font */
         background-color: var(--cta-button-bg);
         color: var(--cta-button-text);
         border-radius: 5px;
         text-decoration: none;
         font-weight: 600;
         transition: background-color 0.3s ease;
+        white-space: nowrap; /* Prevents button text from wrapping */
     }
     .btn-header-cta:hover {
         background-color: #0056b3; 
@@ -108,28 +100,29 @@
 
     /* Hero Section */
     .hero {
-      /* MODIFIED: Changed to .png */
-      background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image1.png'); 
+      /* MODIFIED: Using image1.jpg, increased padding for height */
+      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('image1.jpg'); 
       background-size: cover;
-      background-position: center center; 
+      background-position: center center; /* Ensures the center of the image is shown */
       color: var(--light);
-      padding: 3rem 0; 
+      /* MODIFIED: Increased padding to make hero taller, allowing more image visibility */
+      padding: 5rem 0; 
       text-align: center;
       position: relative;
     }
 
     .hero h1 {
-      font-size: 2.5rem; 
-      margin-bottom: 0.75rem; 
+      font-size: 2.7rem; /* MODIFIED: Slightly adjusted for new hero height */
+      margin-bottom: 1rem; 
       color: var(--light);
       font-weight: 700;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.6); 
     }
 
     .hero p.lead {
-      font-size: 1.15rem; 
-      margin-bottom: 1.5rem; 
-      max-width: 700px; 
+      font-size: 1.2rem; /* MODIFIED: Slightly adjusted */
+      margin-bottom: 1.75rem; 
+      max-width: 720px; 
       margin-left: auto;
       margin-right: auto;
       color: rgba(255,255,255,0.95); 
@@ -168,12 +161,12 @@
     .content-grid {
       display: grid;
       /* MODIFIED: Adjusted column proportions. Form (1st child) is narrower, Info (2nd child) is wider */
-      grid-template-columns: 1fr 1.8fr; 
+      grid-template-columns: 1fr 2fr; /* Example: Form 1 part, Info 2 parts */
       gap: 2.5rem;
       align-items: flex-start;
     }
 
-    .info-section { /* This is now the second child in the grid, taking 1.8fr */
+    .info-section { /* This is the second child, gets 2fr */
       background: var(--light);
       padding: 2.5rem;
       border-radius: 12px;
@@ -215,7 +208,7 @@
     }
 
     /* Form Box */
-    .form-box { /* This is now the first child in the grid, taking 1fr */
+    .form-box { /* This is the first child, gets 1fr */
       background: var(--light);
       padding: 2rem;
       border-radius: 12px;
@@ -252,11 +245,9 @@
         box-shadow: 0 0 0 3px rgba(0,123,255,0.25); 
     }
 
-
     .form-box button { 
       width: 100%;
     }
-
 
     #status {
       margin-top: 1rem;
@@ -284,54 +275,48 @@
         text-decoration: underline;
     }
 
-
     /* Responsive Adjustments */
     @media (max-width: 992px) { 
       .content-grid {
-        grid-template-columns: 1fr; /* Single column for tablet/mobile */
+        grid-template-columns: 1fr; 
       }
-      /* Form order on mobile: Form is first in HTML, so it will appear first */
       .form-box {
         position: static; 
         margin-top: 0; 
-        /* grid-row: 1; No longer needed as HTML order dictates this now if grid-template-columns is 1fr */
       }
       .info-section {
           margin-top: 2rem; 
-          /* grid-row: 2; No longer needed */
       }
-
-       .hero h1 { font-size: 2rem; } 
-       .hero p.lead { font-size: 1.1rem; }
+       .hero h1 { font-size: 2.2rem; } 
+       .hero p.lead { font-size: 1.15rem; }
        .hero { 
-           padding: 2rem 0; 
-           background-position: center 40%; 
+           padding: 3rem 0; /* MODIFIED: Adjusted tablet hero padding */
+           background-position: center center; /* Ensure consistent centering */
         }
     }
 
     @media (max-width: 768px) { 
       .site-header .container {
-        flex-direction: column;
-        align-items: center; 
-        gap: 0.5rem; 
-      }
-      .site-header img.logo {
-        height: 65px; 
-      }
-      .header-info {
-          align-items: center; 
+        /* MODIFIED: Simpler flex for mobile header */
+        /* flex-direction: column; remove if h2 and button are direct children */
+        /* align-items: center; */
+        /* gap: 0.5rem; */
       }
       .site-header h2 {
-        font-size: 1rem;
-        text-align: center;
-        margin-bottom: 0.5rem;
+        font-size: 1rem; /* MODIFIED: Adjusted mobile header text size */
+        margin-right: 1rem; /* Add some space between text and button */
+      }
+      .btn-header-cta {
+          padding: 0.4rem 0.6rem; /* Slightly smaller padding for mobile */
+          font-size: 0.8rem;
       }
       .hero { 
-          padding: 1.5rem 1rem; 
-          background-position: center 30%; 
+          /* MODIFIED: Reduced padding for mobile hero, adjust background-position if needed */
+          padding: 2.5rem 1rem; 
+          background-position: center 30%; /* Attempt to keep subject in view */
         }
-      .hero h1 { font-size: 1.8rem; }
-      .hero p.lead { font-size: 1rem; line-height: 1.4; }
+      .hero h1 { font-size: 1.9rem; } /* MODIFIED */
+      .hero p.lead { font-size: 1.05rem; line-height: 1.45; } /* MODIFIED */
       .info-section, .form-box { padding: 1.5rem; }
     }
   </style>
@@ -340,11 +325,8 @@
 
   <header class="site-header">
     <div class="container">
-      <img src="logo.png" alt="KickStart Soccer Logo" class="logo"/>
-      <div class="header-info">
-        <h2>Help Bring KickStart Soccer to Des Moines!</h2>
-        <a href="#interest-form" class="btn-header-cta">Get Updates!</a>
-      </div>
+      <h2>Help Bring KickStart Soccer to Des Moines!</h2>
+      <a href="#interest-form" class="btn-header-cta">Get Updates!</a>
     </div>
   </header>
 
@@ -362,7 +344,6 @@
         <aside class="form-box" id="interest-form">
           <h2>Be a KickStart Pioneer!</h2>
           <p class="subheading">Let us know you're interested! There's no commitment, but your input is invaluable as we explore bringing KickStart Soccer to Des Moines.</p>
-
           <form name="submit-to-google-sheet">
             <input type="text" name="name" placeholder="Parent's Full Name" required />
             <input type="email" name="email" placeholder="Your Email Address" required />
@@ -376,7 +357,6 @@
         <section class="info-section">
           <h2>More Than Just Kicking a Ball: The KickStart Difference</h2>
           <p>We believe soccer is a powerful tool for childhood development. Our age-specific curriculum is designed by experts to ensure your child isn't just learning soccer, but also growing valuable life skills.</p>
-
           <h3>What We'll Help Your Child Develop:</h3>
           <ul>
             <li>Enhanced Motor Skills & Coordination</li>
@@ -385,7 +365,6 @@
             <li>A Lifelong Love of Movement and Active Play</li>
             <li>Listening Skills and Following Directions</li>
           </ul>
-
           <h3>Proposed Program Overview:</h3>
           <div class="program-details">
             <ul>
@@ -395,7 +374,6 @@
             </ul>
           </div>
           <p><strong>Year-Round Play, Rain or Shine!</strong> Our programs are planned for an indoor facility, meaning no weather cancellations and consistent fun and learning.</p>
-
           <h3>Transparent Early Bird Pricing We're Exploring:</h3>
           <p>To make this a reality, we're considering a <strong>Founding Members' monthly rate of $139</strong> (all taxes and fees included). This would include:</p>
           <ul>
