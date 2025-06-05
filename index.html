@@ -390,7 +390,7 @@
   </footer>
 
   <script>
-    // Google Sheets Submission
+    // Google Sheets Submission + Facebook Pixel “Lead” event
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyZerXD6A53LZ2rF7EKBmIOAoN5LIVsRX5knxKlFewDUTfvSpVvPgyWa5YKvhhbX7_m/exec';
     const form = document.forms['submit-to-google-sheet'];
     const statusEl = document.getElementById('status');
@@ -398,13 +398,16 @@
     if (form && statusEl) {
       form.addEventListener('submit', e => {
         e.preventDefault();
-        statusEl.innerHTML = "Sending...";
+        statusEl.innerHTML = "Sending…";
         statusEl.className = '';
         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
           .then(response => {
             statusEl.innerHTML = "✅ Thanks! We’ve got your interest and will be in touch soon.";
             statusEl.className = 'success';
             form.reset();
+            if (typeof fbq === 'function') {
+              fbq('track', 'Lead', { value: 0.00, currency: 'USD' });
+            }
           })
           .catch(error => {
             statusEl.innerHTML = "❌ Oops! Something went wrong. Please try again.";
@@ -429,9 +432,7 @@
           e.preventDefault();
           const targetElement = document.querySelector(this.getAttribute('href'));
           if (targetElement) {
-            targetElement.scrollIntoView({
-              behavior: 'smooth'
-            });
+            targetElement.scrollIntoView({ behavior: 'smooth' });
           } else {
             console.error("Smooth scroll target not found for href:", this.getAttribute('href'));
           }
